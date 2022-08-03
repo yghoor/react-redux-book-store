@@ -37,7 +37,7 @@ const BookForm = () => {
     <div className="book-form">
       <h2>ADD NEW BOOK</h2>
 
-    <form method="post" className="add-book">
+      <form onSubmit={submitBookToStore} className="add-book">
         <label>
           <input type="text" name="title" maxLength="60" value={inputText.title} placeholder="Book title" className="title" onChange={onChange} required />
         </label>
