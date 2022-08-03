@@ -1,7 +1,11 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import { React, useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { v4 as uuidv4 } from 'uuid';
+import { addBook } from '../redux/books/books';
 
 const BookForm = () => {
+  const dispatch = useDispatch();
   const [inputText, setInputText] = useState({
     title: '',
     author: '',
@@ -14,7 +18,20 @@ const BookForm = () => {
     });
   };
 
-import React from 'react';
+  const submitBookToStore = (e) => {
+    e.preventDefault();
+    const newBook = {
+      id: uuidv4(),
+      title: inputText.title,
+      author: inputText.author,
+    };
+    dispatch(addBook(newBook));
+
+    setInputText({
+      title: '',
+      author: '',
+    });
+  };
 
   return (
     <div className="book-form">
