@@ -1,5 +1,5 @@
-import Booklist from '../components/Booklist.js';
-import BookForm from '../components/BookForm.js';
+import Booklist from '../components/Booklist';
+import BookForm from '../components/BookForm';
 
 const Books = () => (
   <div className="books-page">

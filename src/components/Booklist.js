@@ -1,24 +1,22 @@
 import React from 'react';
-import Book from './Book.js';
+import Book from './Book';
 
-const Booklist = () => {
-  return (
-    <div className="books-page">
-      <ul>
-        <li>
-          <Book />
-        </li>
-        
-        <li>
-          <Book />
-        </li>
+const Booklist = () => (
+  <div className="books-page">
+    <ul>
+      <li>
+        <Book />
+      </li>
 
-        <li>
-          <Book />
-        </li>
-      </ul>
-    </div>
-  );
-}
+      <li>
+        <Book />
+      </li>
+
+      <li>
+        <Book />
+      </li>
+    </ul>
+  </div>
+);
 
 export default Booklist;
