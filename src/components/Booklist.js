@@ -1,22 +1,27 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import Book from './Book';
 
-const Booklist = () => (
-  <div className="books-page">
-    <ul>
-      <li>
-        <Book />
-      </li>
+const Booklist = () => {
+  const booklist = useSelector((state) => state.booksReducer);
 
-      <li>
-        <Book />
-      </li>
+  if (booklist.length === 0) {
+    return (
+      <div className="no-books">
+        <h1>No books in the store</h1>
+      </div>
+    );
+  }
 
-      <li>
-        <Book />
-      </li>
-    </ul>
-  </div>
-);
+  return (
+    <div className="booklist">
+      <ul>
+        {booklist.map((book) => (
+          <Book key={book.id} title={book.title} author={book.author} id={book.id} />
+        ))}
+      </ul>
+    </div>
+  );
+};
 
 export default Booklist;
