@@ -11,7 +11,7 @@ const BookForm = () => {
     author: '',
   });
 
-  const onChange = (e) => {
+  const onTextChange = (e) => {
     setInputText({
       ...inputText,
       [e.target.name]: e.target.value,
@@ -39,11 +39,11 @@ const BookForm = () => {
 
       <form onSubmit={submitBookToStore} className="add-book">
         <label>
-          <input type="text" name="title" maxLength="60" value={inputText.title} placeholder="Book title" className="title" onChange={onChange} required />
+          <input type="text" name="title" maxLength="60" value={inputText.title} placeholder="Book title" className="title" onChange={onTextChange} required />
         </label>
 
         <label>
-          <input type="text" name="author" maxLength="60" value={inputText.author} placeholder="Author" className="author" onChange={onChange} required />
+          <input type="text" name="author" maxLength="60" value={inputText.author} placeholder="Author" className="author" onChange={onTextChange} required />
         </label>
 
         <label>
