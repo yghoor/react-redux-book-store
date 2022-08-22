@@ -63,8 +63,21 @@ export const addBook = (payload) => async (dispatch) => {
   });
 };
 
+export const removeBook = (payload) => async (dispatch) => {
+  await fetch(
+    `https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/3eIgjc1cLtb5eamuunbl/books/${payload}`,
+    {
+      method: 'DELETE',
+    },
+  );
 
-export const removeBook = (payload) => ({
-  type: REMOVE_BOOK,
-  payload,
-});
+  const books = await fetch(
+    'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/3eIgjc1cLtb5eamuunbl/books',
+  )
+    .then((response) => response.json());
+
+  dispatch({
+    type: REMOVE_BOOK,
+    payload: books,
+  });
+};
