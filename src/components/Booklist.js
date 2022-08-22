@@ -10,7 +10,7 @@ const Booklist = () => {
     dispatch(retrieveBooks());
   }, []);
 
-  if (booklist.length === 0) {
+  if (booklist.length === 0 || Object.keys(booklist[0]).length === 0) {
     return (
       <div className="no-books">
         <h1>No books in the store</h1>
