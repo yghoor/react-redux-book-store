@@ -10,12 +10,17 @@ const BookForm = () => {
     title: '',
     author: '',
   });
+  const [category, setCategory] = useState('category1');
 
   const onTextChange = (e) => {
     setInputText({
       ...inputText,
       [e.target.name]: e.target.value,
     });
+  };
+
+  const onListChange = (e) => {
+    setCategory(e.target.value);
   };
 
   const submitBookToStore = (e) => {
@@ -47,7 +52,7 @@ const BookForm = () => {
         </label>
 
         <label>
-          <select placeholder="Category">
+          <select placeholder="Category" onChange={onListChange}>
             <option value="category1">category1</option>
             <option value="category2">category2</option>
             <option value="category3">category3</option>
