@@ -18,11 +18,20 @@ const Booklist = () => {
     );
   }
 
+  const books = booklist[0];
+  const bookIDs = Object.keys(books);
+
   return (
     <div className="booklist">
       <ul>
-        {booklist.map((book) => (
-          <Book key={book.id} title={book.title} author={book.author} id={book.id} />
+        {bookIDs.map((id, i) => (
+          <Book
+            key={Object.keys(books)[i]}
+            title={books[id][0].title}
+            author={books[id][0].author}
+            category={books[id][0].category}
+            id={Object.keys(books)[i]}
+          />
         ))}
       </ul>
     </div>
