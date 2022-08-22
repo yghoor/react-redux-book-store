@@ -11,6 +11,8 @@ const reducer = (state = initialState, action) => {
       return [...state, action.payload];
     case NO_BOOKS_IN_STORE:
       return state;
+    case ADD_BOOK:
+      return Object.assign([], state, { 0: action.payload });
     case REMOVE_BOOK:
       return state.filter((book) => book.id !== action.payload);
     default:
