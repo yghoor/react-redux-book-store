@@ -1,4 +1,5 @@
 const RETRIEVE_BOOKS = 'react-redux-book-store/books/RETRIEVE_BOOKS';
+const NO_BOOKS_IN_STORE = 'react-redux-book-store/books/NO_BOOKS_IN_STORE';
 const ADD_BOOK = 'react-redux-book-store/books/ADD_BOOK';
 const REMOVE_BOOK = 'react-redux-book-store/books/REMOVE_BOOK';
 
@@ -8,6 +9,8 @@ const reducer = (state = initialState, action) => {
   switch (action.type) {
     case RETRIEVE_BOOKS:
       return [...state, action.payload];
+    case NO_BOOKS_IN_STORE:
+      return state;
     case REMOVE_BOOK:
       return state.filter((book) => book.id !== action.payload);
     default:
