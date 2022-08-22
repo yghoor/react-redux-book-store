@@ -38,8 +38,29 @@ export const retrieveBooks = () => async (dispatch) => {
   }
 };
 
-  payload,
-});
+export const addBook = (payload) => async (dispatch) => {
+  await fetch(
+    'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/3eIgjc1cLtb5eamuunbl/books',
+    {
+      method: 'POST',
+      body: JSON.stringify(payload),
+      headers: {
+        'Content-type': 'application/json; charset=UTF-8',
+      },
+    },
+  );
+
+  const books = await fetch(
+    'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/3eIgjc1cLtb5eamuunbl/books',
+  )
+    .then((response) => response.json());
+
+  dispatch({
+    type: ADD_BOOK,
+    payload: books,
+  });
+};
+
 
 export const removeBook = (payload) => ({
   type: REMOVE_BOOK,
