@@ -26,9 +26,10 @@ const BookForm = () => {
   const submitBookToStore = (e) => {
     e.preventDefault();
     const newBook = {
-      id: uuidv4(),
+      item_id: uuidv4(),
       title: inputText.title,
       author: inputText.author,
+      category,
     };
     dispatch(addBook(newBook));
 
