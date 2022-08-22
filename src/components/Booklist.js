@@ -4,7 +4,11 @@ import { retrieveBooks } from '../redux/books/books';
 import Book from './Book';
 
 const Booklist = () => {
+  const dispatch = useDispatch();
   const booklist = useSelector((state) => state.booksReducer);
+  useEffect(() => {
+    dispatch(retrieveBooks());
+  }, []);
 
   if (booklist.length === 0) {
     return (
